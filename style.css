@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   background: #202A44;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 52px;
@@ -26,7 +25,19 @@ button:hover {
   color: #F6BE00;
   border: 7.5px solid #F6BE00;
   transform: scale(1.1);
-  transition: 0.5s;
   margin: 15px;
   min-width: 300px;
+}
+
+icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+icon:hover {
+  transform: scale(1.1);
+  rotate: 30deg;
+  transition: 0.5s;
 }
