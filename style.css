@@ -8,7 +8,13 @@ body {
   vertical-align:middle;
 }
 
-button {
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+
   background: none;
   color: #fff;
   border: 5px solid #F6BE00;
@@ -20,24 +26,11 @@ button {
   min-width: 300px;
 }
 
-button:hover {
+a.button:hover {
   background: #202A44;
   color: #F6BE00;
   border: 7.5px solid #F6BE00;
   transform: scale(1.1);
   margin: 15px;
   min-width: 300px;
-}
-
-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 0.5s;
-}
-
-icon:hover {
-  transform: scale(1.1);
-  rotate: 30deg;
-  transition: 0.5s;
 }

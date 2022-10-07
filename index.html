@@ -25,10 +25,9 @@
 	</style>
 
 	<div id="content">
-		<img src="icon.png" alt="∫" width="100" height="100">
+		<a href="index.html"> <img src="icon.png" alt="∫" width="100" height="100"> </a>
 	</div>
 
-	<!-- create text a title that is vertically centred to the middle-->
 	<div class="container">
 		<h1>Calculus Revision</h1>
 		<hr></hr>
@@ -36,13 +35,18 @@
 		<div class="gap"></div>
 	</div>
 
-	<!-- create a container that is vertically centred to the middle-->
 	<div class="container">
-		<button class="button">Memorisation</button>
-		<button class="button">Derivatives</button>
-		<button class="button">Tangent Lines</button>
+		<a href="memorisation.html" class="button">Memorisation</a>
+		<a href="derivatives.html" class="button">Derivatives</a>
+		<a href="tangents.html" class="button">Tangent Lines</a>
 	</div>
 
+	<script>
+		// fade out the page
+		document.body.style.opacity = 0;
+		document.body.style.transition = "opacity 1s";
+		document.body.style.opacity = 1;
+	</script>
 
 </body>
 </html>
