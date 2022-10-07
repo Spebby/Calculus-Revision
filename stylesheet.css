@@ -4,16 +4,6 @@ body {
 	background-color: #222222;
 }
 
-.social {
-	touch-action: manipulation;
-	/* Disable text selection: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Chrome, Opera and Firefox */
-}
-
 .prompt {
 	font-family: opensans;
 	color: white;
