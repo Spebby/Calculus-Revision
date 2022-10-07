@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  background: #202A44;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 52px;
+  color: #fff;
+  text-align: center;
+  padding: 50px;
+  vertical-align:middle;
+}
+
+button {
+  background: none;
+  color: #fff;
+  border: 5px solid #F6BE00;
+  padding: 10px 20px;
+  font-size: 52px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 15px;
+  min-width: 300px;
+}
+
+button:hover {
+  background: #202A44;
+  color: #F6BE00;
+  border: 7.5px solid #F6BE00;
+  transform: scale(1.1);
+  transition: 0.5s;
+  margin: 15px;
+  min-width: 300px;
+}
