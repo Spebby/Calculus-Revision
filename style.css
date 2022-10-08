@@ -1,7 +1,10 @@
+body {
+	background: #202A44;
+}
+
 html, body .main{
 	height:75%;
 
-	background: #202A44;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 52px;
 	color: #fff;
