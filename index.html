@@ -3,48 +3,38 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Calculus Revision ∫</title>
+	<title>Calculus Revision</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<style>
-		#content {
-			position: relative;
-		}
-		#content img {
-			position : absolute;
-			top: 0;
-			left: 0;
-			transition: 0.5s;
-		}
-		#content img:hover {
-			transform: scale(1.5);
-			rotate: 25deg;
-		}
-	</style>
+	<div class="fade-in ">
+		<div id="icon" style="padding-top: 1.5%; padding-left: 1.5%;"> 
+			<a href="index.html"> 
+				<img src="icon.png" alt="∫" width="100" height="100"> 
+			</a> 
+		</div>
 
-	<div id="content">
-		<a href="index.html"> <img src="icon.png" alt="∫" width="100" height="100"> </a>
+		<div class="main">
+			<div>
+				<div class="title">
+					<div style="float:center"> <h1>Calculus Revision</h1> </div>
+					<hr></hr>
+				</div>
+
+				<span class="container">
+					<a href="memorisation.html"><button class="button">Memorisation</button></a>
+					<a href="derivatives.html"><button class="button">Derivatives</button></a>
+					<a href="tangents.html"><button class="button">Tangents</button></a>
+				</span>
+			</div>
+		</div>
+
+		<div style="position: absolute; top: 95%; padding-left: 1%;">
+			<a href="https://github.com/Spebby/Calculus-Revision/issues"> 
+				<p id="link" style="float:left;"> Report bugs to the Github Page. </p>
+			</a>
+		</div>
 	</div>
-
-	<div class="container">
-		<h1>Calculus Revision</h1>
-		<hr></hr>
-	</div>
-
-	<div class="container">
-		<a href="memorisation.html"><button class="button">Memorisation</button></a>
-		<a href="derivatives.html"><button class="button">Derivatives</button></a>
-		<a href="tangents.html"><button class="button">Tangent Lines</button></a>
-	</div>
-
-	<script>
-		// fade out the page
-		document.body.style.opacity = 0;
-		document.body.style.transition = "opacity 1s";
-		document.body.style.opacity = 1;
-	</script>
-
 </body>
 </html>

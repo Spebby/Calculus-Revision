@@ -1,0 +1,16 @@
+{
+	
+	"flashcards":
+	[
+		{
+			"context": "Derivatives",
+			"front": "f´(sinx)",
+			"back": "cosx"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(cosx)",
+			"back": "-sinx"
+		}
+	]
+}
