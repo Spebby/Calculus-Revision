@@ -3,93 +3,308 @@
 	[
 		{
 			"context": "Derivatives",
-			"front": "f´(sinx)",
+			"front": "d/dx (sinx)",
 			"back": "cosx"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(cosx)",
+			"front": "d/dx (cosx)",
 			"back": "-sinx"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(tanx)",
-			"back": "sec^2x"
+			"front": "d/dx (tanx)",
+			"back": "sec²ˣ"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(secx)",
+			"front": "d/dx (secx)",
 			"back": "secx tanx"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(cscx)",
-			"back": "-cscx cotx"
+			"front": "d/dx (cscx)",
+			"back": "(-cscx)(cotx)"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(cotx)",
-			"back": "-csc^2x"
+			"front": "d/dx (cotx)",
+			"back": "-csc²ˣ"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(arcsinx)",
-			"back": "1/sqrt(1-x^2)"
+			"front": "d/dx (arcsinx)",
+			"back": "1/√(1-x²)"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(arccosx)",
-			"back": "-1/sqrt(1-x^2)"
+			"front": "d/dx (arccosx)",
+			"back": "-1/√(1-x²)"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(arctanx)",
-			"back": "1/(1+x^2)"
+			"front": "d/dx (arctanx)",
+			"back": "1/(1+x²)"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(lnx)",
+			"front": "d/dx (lnx)",
 			"back": "1/x"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(logax)",
+			"front": "d/dx (logax)",
 			"back": "1/(ax ln a)"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(e^x)",
-			"back": "e^x"
+			"front": "d/dx (eˣ)",
+			"back": "eˣ"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(a^x)",
-			"back": "a^x ln a"
+			"front": "d/dx (aˣ)",
+			"back": "aˣ ln a"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(x^n)",
-			"back": "nx^(n-1)"
+			"front": "d/dx (xⁿ)",
+			"back": "nx⁽ⁿ⁻¹⁾"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(sqrt(x))",
-			"back": "1/2sqrt(x)"
+			"front": "d/dx (√x)",
+			"back": "1/√x"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(x^2)",
+			"front": "d/dx (x²)",
 			"back": "2x"
 		},
 		{
 			"context": "Derivatives",
-			"front": "f´(x^3)",
-			"back": "3x^2"
+			"front": "d/dx (x³)",
+			"back": "3x²"
+		},
+		{
+			"context": "Derivatives",
+			"front": "d/dx (c)",
+			"back": "0"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Power Rule",
+			"back": "d/dx (xⁿ) = xu⁽ⁿ⁻¹⁾"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Sum Rule",
+			"back": "d/dx (f + g) = d/dx f(x) + d/dx g(x)"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Difference Rule",
+			"back": "d/dx (f - g) = df/dx - dg/dx"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Product Rule",
+			"back": "d/dx (fg) = df/dx ⋅ g(x) + dg/dx ⋅ f(x)"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Quotient Rule",
+			"back": "d/dx (f/g) = (df/dx ⋅ g(x) - dg/dx ⋅ f(x)) / g(x)²"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Chain Rule",
+			"back": "d/dx (f(g)) = df/dx(g) ⋅ dg/dx"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Implicit Differentiation",
+			"back": "d/dx (f(x,y)) = df/dx + (df/dy)(dy/dx)"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Logarithmic Differentiation",
+			"back": "d/dx (ln f(x)) = 1/f(x) ⋅ df/dx"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Exponential Differentiation",
+			"back": "d/dx (eˣ) = eˣ"
+		},
+		{
+			"context": "Derivatives Rules",
+			"front": "Constant Rule",
+			"back": "d/dx (c) = 0"
 		},
 		{
 			"context": "Definitions",
 			"front": "Derivative",
 			"back": "SOTTLAP"
+		},
+		{
+			"context": "Definitions",
+			"front": "SOTTLAP",
+			"back": "Slope of the tangent line at a point"
+		},
+		{
+			"context": "Definitions",
+			"front": "Slope",
+			"back": "The rate of change of a function"
+		},
+		{
+			"context": "Definitions",
+			"front": "Tangent Line",
+			"back": "A line that touches a curve at one point"
+		},
+		{
+			"context": "Definitions",
+			"front": "Limit",
+			"back": "The value a function approaches as x approaches a number"
+		},
+		{
+			"context": "Definitions",
+			"front": "Integral",
+			"back": "The area under a curve"
+		},
+		{
+			"context": "Definitions",
+			"front": "Definite Integrals",
+			"back": "A function whose derivative is the original function"
+		},
+		{
+			"context": "Definitions",
+			"front": "Antiderivatives",
+			"back": "A function whose derivative is the original function"
+		},
+		{
+			"context": "Definitions",
+			"front": "Derivative",
+			"back": "A function that gives the slope of any point on a curve"
+		},
+		{
+			"context": "Definitions",
+			"front": "f'(x) or y'(x)",
+			"back": "dy/dx or df/dx"
+		},
+		{
+			"context": "Definitions",
+			"front": "dy/dx or df/dx",
+			"back": "d/dx f(x)"
+		},
+		{
+			"context": "Definitions",
+			"front": "Df(x) or Dₓf(x)",
+			"back": "df/dx or dy/dx"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "tanθ",
+			"back": "sinθ/cosθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sinθ",
+			"back": "2sin(θ/2)cos(θ/2)"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cosθ",
+			"back": "2cos(θ/2)cos(θ/2)"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin²θ",
+			"back": "(1-cos2θ)/2"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cos²θ",
+			"back": "(1+cos2θ)/2"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin2θ",
+			"back": "2sinθcosθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cos2θ",
+			"back": "cos²θ-sin²θ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin(θ±φ)",
+			"back": "sinθcosφ ± cosθsinφ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cos(θ±φ)",
+			"back": "cosθcosφ ∓ sinθsinφ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "tan(θ±φ)",
+			"back": "(tanθ ± tanφ)/(1 ± tanθtanφ)"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin(-θ)",
+			"back": "-sinθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cos(-θ)",
+			"back": "cosθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "tan(-θ)",
+			"back": "-tanθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "csc(-θ)",
+			"back": "-cscθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sec(-θ)",
+			"back": "secθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cot(-θ)",
+			"back": "-cotθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin(θ - π/2)",
+			"back": "cosθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "cos(θ - π/2)",
+			"back": "sinθ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "sin²θ + cos²θ",
+			"back": "1"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "1 + tan²θ",
+			"back": "sec²θ"
+		},
+		{
+			"context": "Trig Identities",
+			"front": "1 + cot²θ",
+			"back": "csc²θ"
 		}
 	]
 }
