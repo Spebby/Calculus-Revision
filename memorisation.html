@@ -7,13 +7,12 @@
 	<title>Calculus Revision</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="flashcards.json"></script>
-	<script type="model" scr="memorisation.html"></script>
 </head>
 <body>
-	<!-- fade in the page -->
+	<script src="memorisationCom.js"></script>
+	<script src="flashcards.json"></script>
+
 	<div class="fade-in ">
-		<!-- the header -->
 		<div id="icon" style="padding-top: 1.5%; padding-left: 1.5%;"> 
 			<a href="index.html"> 
 				<img src="icon.png" alt="∫" width="100" height="100"> 
@@ -25,13 +24,14 @@
 				<p style="font-size:50%;">Flashcards :)</p> 
 				<div id="flashcard">
 					<!-- put context label -->
-
+					<p id="context">context</p>
 					<!-- put front of card-->
-
+					<p id="front">front</p>
 					<!-- if card is clicked, swap front for back of card -->
-
+					<p id="back">back</p>
 				</div>
-				<!-- button the get a random flash card -->
+				<!-- button the get a random flashcard from the script -->
+				<button id="random" onclick="getRandomFlashcard()">Random</button>
 			</div>
 		</div>
 
