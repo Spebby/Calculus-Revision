@@ -1,29 +1,11 @@
-{
-	
-	"flashcards"
-	[
-		{
-			"context": "Derivatives",
-			"front": "f´(sinx)",
-			"back": "cosx"
-		},
-		{
-			"context": "Derivatives",
-			"front": "f´(cosx)",
-			"back": "-sinx"
-		}
-	]
-}
-
 function Flashcard(context, front, back) {
     this.context = context;
     this.front = front;
     this.back = back;
 }
 
-cards = [];
-
-loadFlashcards(); 
+// create an array of flashcards
+var cardArray = [];
 
 function loadFlashcards() {
     var request = new XMLHttpRequest();
@@ -31,13 +13,14 @@ function loadFlashcards() {
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
             // Success!
-            var jsonData = JSON.parse(request.responseText);
+            jsonData = JSON.parse(request.responseText)
             for (var i = 0; i < jsonData.flashcards.length; i++) {
                 var card = jsonData.flashcards[i];
                 var flashcard = new Flashcard(card.context, card.front, card.back);
                 console.log("Flashcard created: " + card.context, card.front, card.back);
-                cards.push(flashcard);
+                cardArray.push(flashcard);
             }
+            console.log("Flashcards loaded: " + cardArray.length);
         } else {
             // We reached our target server, but it returned an error
             console.log("Error loading flashcards");
@@ -51,12 +34,16 @@ function loadFlashcards() {
 }
 
 function getRandomFlashcard() {
-    var i = Math.floor(Math.random() * cards.length);
-    return cards[i];
+    var randomIndex = Math.floor(Math.random() * cardArray.length);
+    return cardArray[randomIndex];
 }
 
 loadFlashcards();
-var flashcard = cards[0];
-document.getElementById("context").innerHTML = flashcard.context;
-document.getElementById("front").innerHTML = flashcard.front;
-document.getElementById("back").innerHTML = flashcard.back;
+
+// wait for the flash cards to be generated 
+setTimeout(function() {
+    var flashcard = getRandomFlashcard();
+    document.getElementById("context").innerHTML = flashcard.context;
+    document.getElementById("front").innerHTML = flashcard.front;
+    document.getElementById("back").innerHTML = flashcard.back;
+}, 1000);
