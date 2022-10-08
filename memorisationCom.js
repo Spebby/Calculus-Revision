@@ -1,3 +1,20 @@
+{
+	
+	"flashcards"
+	[
+		{
+			"context": "Derivatives",
+			"front": "f´(sinx)",
+			"back": "cosx"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(cosx)",
+			"back": "-sinx"
+		}
+	]
+}
+
 function Flashcard(context, front, back) {
     this.context = context;
     this.front = front;
@@ -5,6 +22,8 @@ function Flashcard(context, front, back) {
 }
 
 cards = [];
+
+loadFlashcards(); 
 
 function loadFlashcards() {
     var request = new XMLHttpRequest();
@@ -16,7 +35,7 @@ function loadFlashcards() {
             for (var i = 0; i < jsonData.flashcards.length; i++) {
                 var card = jsonData.flashcards[i];
                 var flashcard = new Flashcard(card.context, card.front, card.back);
-                console.log("Flashcard created: " + flashcard.context, flashcard.front, flashcard.back);
+                console.log("Flashcard created: " + card.context, card.front, card.back);
                 cards.push(flashcard);
             }
         } else {
@@ -36,4 +55,8 @@ function getRandomFlashcard() {
     return cards[i];
 }
 
-var flashcard = getRandomFlashcard();
+loadFlashcards();
+var flashcard = cards[0];
+document.getElementById("context").innerHTML = flashcard.context;
+document.getElementById("front").innerHTML = flashcard.front;
+document.getElementById("back").innerHTML = flashcard.back;
