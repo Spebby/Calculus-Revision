@@ -6,13 +6,15 @@ function Flashcard(context, front, back) {
 
 // create an array of flashcards
 var cardArray = [];
+jsonRetrived = false;
 
 function loadFlashcards() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://raw.githubusercontent.com/Spebby/Calculus-Revision/main/flashcards.json', true);
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
+    request.onload = function () {
+        if (request.status >= 200 && request.status < 500) {
             // Success!
+            jsonRetrived = true;
             jsonData = JSON.parse(request.responseText)
             for (var i = 0; i < jsonData.flashcards.length; i++) {
                 var card = jsonData.flashcards[i];
@@ -26,7 +28,7 @@ function loadFlashcards() {
             console.log("Error loading flashcards");
         }
     };
-    request.onerror = function() {
+    request.onerror = function () {
         // There was a connection error of some sort
         console.log("Error loading flashcards");
     };
@@ -38,12 +40,47 @@ function getRandomFlashcard() {
     return cardArray[randomIndex];
 }
 
+// shuffles the fronts and backs of cards
+function shuffleSides() {
+    console.log("shuffling sides");
+    for (var i = 0; i < cardArray.length; i++)
+        if (Math.random() < 0.5)
+            [cardArray[i].front, cardArray[i].back] = [cardArray[i].back, cardArray[i].front];
+
+    document.getElementById("frontText").innerHTML = flashcard.front;
+    document.getElementById("backText").innerHTML = flashcard.back;
+}
+
 loadFlashcards();
 
 // wait for the flash cards to be generated 
-setTimeout(function() {
-    var flashcard = getRandomFlashcard();
+var flashcard = new Flashcard("", "", "");
+setTimeout(function () {
+    nextCard();
+}, 200);
+
+setTimeout(function () {
+    if(document.getElementById("context").innerHTML == "Loading..." && jsonRetrived)
+        nextCard();
+}, 750);
+
+flipped = false;
+function flipCard() {
+    if (flipped) {
+        document.getElementById("front").style.display = "block";
+        document.getElementById("back").style.display = "none";
+        flipped = false;
+    } else {
+        document.getElementById("front").style.display = "none";
+        document.getElementById("back").style.display = "block";
+        flipped = true;
+    }
+}
+
+function nextCard() {
+    flashcard = getRandomFlashcard();
+    shuffleSides();
     document.getElementById("context").innerHTML = flashcard.context;
-    document.getElementById("front").innerHTML = flashcard.front;
-    document.getElementById("back").innerHTML = flashcard.back;
-}, 1000);
+    document.getElementById("frontText").innerHTML = flashcard.front;
+    document.getElementById("backText").innerHTML = flashcard.back;
+}

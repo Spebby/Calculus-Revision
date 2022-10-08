@@ -20,23 +20,24 @@
 
 		<div class="main">
 			<div>
-				<p style="font-size:50%;">Flashcards :)</p> 
-				<div id="flashcard">
-					<!-- put context label -->
-					<p id="context">context</p>
-					<!-- put front of card-->
-					<p id="front">front</p>
-					<!-- if card is clicked, swap front for back of card -->
-					<p id="back">back</p>
-				</div>
-				<!-- button the get a random flashcard from the script -->
-				<button id="random" onclick="getRandomFlashcard()">Random</button>
+				<br></br>
+				<button id="flashcard" onclick="flipCard()">
+					<p id="context" style="align-self: top;">Loading...</p>
+					<div id="front">
+						<p id="frontText"></p>
+					</div>
+					<div id="back" style="display:none;">
+						<p id="backText"></p>
+					</div>
+				</button>
+				<br></br>
+				<button onclick="nextCard()">Next</button>
 			</div>
 		</div>
 
 		<div style="position: absolute; top: 95%; padding-left: 1%;">
 			<a href="https://github.com/Spebby/Calculus-Revision/issues"> 
-				<p id="link" style="float:left;"> Report bugs to the Github Page. </p>
+				<p id="link" style="float:left;"> Bugs or Feature Requests? GitHub. </p>
 			</a>
 		</div>
 	</div>
