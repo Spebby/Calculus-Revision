@@ -10,6 +10,86 @@
 			"context": "Derivatives",
 			"front": "f´(cosx)",
 			"back": "-sinx"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(tanx)",
+			"back": "sec^2x"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(secx)",
+			"back": "secx tanx"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(cscx)",
+			"back": "-cscx cotx"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(cotx)",
+			"back": "-csc^2x"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(arcsinx)",
+			"back": "1/sqrt(1-x^2)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(arccosx)",
+			"back": "-1/sqrt(1-x^2)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(arctanx)",
+			"back": "1/(1+x^2)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(lnx)",
+			"back": "1/x"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(logax)",
+			"back": "1/(ax ln a)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(e^x)",
+			"back": "e^x"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(a^x)",
+			"back": "a^x ln a"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(x^n)",
+			"back": "nx^(n-1)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(sqrt(x))",
+			"back": "1/2sqrt(x)"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(x^2)",
+			"back": "2x"
+		},
+		{
+			"context": "Derivatives",
+			"front": "f´(x^3)",
+			"back": "3x^2"
+		},
+		{
+			"context": "Definitions",
+			"front": "Derivative",
+			"back": "SOTTLAP: Slope of The Tangent Line At a Point"
 		}
 	]
 }
