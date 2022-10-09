@@ -38,10 +38,11 @@ function convertToScript(input, script) {
 }
 
 function generatePowerRule() {
-	var leadingConstant = "";
-	var exponent = Math.floor(Math.random() * 12) + 1;
+	exponent = Math.floor(Math.random() * 12) + 1;
 	var output = "";
 
+	// reset leading constant so numbers don't balloon
+	leadingConstant = 1;
 	if (Math.random() < 0.5)
 		leadingConstant = Math.floor(Math.random() * 9) + 1;
 
@@ -51,34 +52,9 @@ function generatePowerRule() {
 
 function solvePowerRule(input) {
 	var output = "";
-	var leadingConstant = "";
-	var exponent = "";
-	
-	// check if there is a leading constant
-	if(input[0] != "x") {
-		for (var i = 0; i < input.length; i++) {
-			if (input[i] == "x")
-				break;
 
-			leadingConstant += input[i];
-		}
-	}
-	else 
-		leadingConstant = 1;
-	
-
-	if (input[input.indexOf("x") + 1] != null) {
-		for (var i = input.length - 1; i >= 0; i--) {
-			if (input[i] == "x")
-				break;
-			exponent = input[i] + exponent;
-		}
-	}
-	else 
-		exponent = "¹";
-
-	leadingConstant = parseInt(leadingConstant);
-	exponent = parseInt(convertToScript(exponent, exponentToInt));
+	if(exponent == 1)
+		return leadingConstant;
 
 	leadingConstant *= exponent;
 	if(leadingConstant == 0)
@@ -121,6 +97,11 @@ function generateProblem() {
 
 var problem;
 var solution;
+
+//#region Power Rule Variables
+var leadingConstant = 1;
+var exponent = 1;
+//#endregion
 
 setTimeout(function () {
     nextCard();
