@@ -1,6 +1,5 @@
 function generatePowerRule() {
 	var exponent = Math.floor(Math.random() * 12) + 1;
-	var output = "";
 
 	// reset leading constant so numbers don't balloon
 	var constant = "";
@@ -11,11 +10,7 @@ function generatePowerRule() {
 			constant *= -1;
 	}
 
-	output = constant + "x" + convertToScript(exponent, intToExponent);
-	if(constant == "")
-		constant = 1;
-
-	return output;
+	return constant + "x" + convertToScript(exponent, intToExponent);
 }
 
 function solvePowerRule(input) {
@@ -45,6 +40,44 @@ function solvePowerRule(input) {
 	return output; 
 }
 
+const numOfChainTerms = 3; // (+2)
+function generateChainRule() {
+	// chain rule is so applyable that I could make this function rediculously complex. 
+	// In the interest of time it's remaining as a stub.
+	var output = "";
+
+	var numOfTerms = Math.floor(Math.random() * numOfChainTerms) + 2;
+	var terms = [];
+
+	for(var i = 0; i < numOfTerms; i++)
+		terms.push(Math.random() < 0.5 ? firstTerm = generatePowerRule() : firstTerm = randomTrigFunction());	
+
+	for(var i = 0; i < terms.length; i++) {
+		output += terms[i];
+		if(i == terms.length - 1)
+			for(var j = 0; j < terms.length; j++)
+				output += ")";
+		else
+			output += "(";
+	}
+
+	return output;
+}
+
+function randomTrigFunction() {
+	var trigFunctions = ["sin", "cos", "tan", "csc", "sec", "cot"];
+	var index = Math.floor(Math.random() * trigFunctions.length);
+
+	if(Math.random() < 0.25)
+		return "-" + trigFunctions[index];
+
+	return trigFunctions[index];
+}
+
+function solveChainRule() {
+	return "Not implemented yet";
+}
+
 function generateProblem() {
 	// originally was going to use a Dict to get a return value, but it wasn't working to my liking. Will have to use a switch as a bandaid fix.
 	var type = Math.floor(Math.random() * 3);
@@ -54,8 +87,8 @@ function generateProblem() {
 			solution = solvePowerRule(problem);
 			break;
 		case 1:
-			problem = generatePowerRule();
-			solution = solvePowerRule(problem);
+			problem = generateChainRule();
+			solution = solveChainRule(problem);
 			break;
 		case 2:
 			problem = generatePowerRule();

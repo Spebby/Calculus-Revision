@@ -29,8 +29,8 @@ function generateProblem() {
 		
 		terms.push(term + "x" + convertToScript(termPower.toString(), intToExponent));
 	}
-	
-	// sort list based powers
+
+	// var holders
 	var temp = terms;
 	terms = [];
 
@@ -51,10 +51,10 @@ function generateProblem() {
 		temp.splice(highestIndex, 1);
 	}
 
-	// sort list based on powers
 	temp = terms;
 	terms = [];
 
+	// sort list based on powers
 	while(temp.length > 0) {
 		var highest = 0;
 		var highestIndex = 0;
@@ -71,11 +71,13 @@ function generateProblem() {
 		temp.splice(highestIndex, 1);
 	}		
 
+	// at random, delete the constant term.
 	if(Math.random() < 0.5 || constant == 0)
 		constant = "";
 	else 
 		terms.push(constant);
 	
+	// assemble the output
 	for(var i = 0; i < terms.length; i++) {
 		output += terms[i];
 
@@ -115,14 +117,14 @@ function getSolution(input) {
 	}
 
 	var x = context;
-	var y = getSum(terms, x);
-	var m = getSum(derivatives, x);
+	var y = combineTerms(terms, x);
+	var m = combineTerms(derivatives, x);
 	var b = y - (m * x);
 
 	return "y = " + m + "x + " + b;
 }
 
-function getSum(input, x) {
+function combineTerms(input, x) {
 	var output = 0;
 	var vars = [];
 	for(var i = 0; i < input.length; i++) {
