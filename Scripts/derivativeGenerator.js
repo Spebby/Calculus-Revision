@@ -1,34 +1,46 @@
 function generatePowerRule() {
-	exponent = Math.floor(Math.random() * 12) + 1;
+	var exponent = Math.floor(Math.random() * 12) + 1;
 	var output = "";
 
 	// reset leading constant so numbers don't balloon
-	leadingConstant = "";
-	if (Math.random() < 0.9)
-		leadingConstant = Math.floor(Math.random() * 9) + 2;
+	var constant = "";
+	if (Math.random() < 0.9) {
+		constant = Math.floor(Math.random() * 9) + 2;
+		
+		if(Math.random() < 0.25)
+			constant *= -1;
+	}
 
-	output = leadingConstant + "x" + convertToScript(exponent, intToExponent);
-	if(leadingConstant == "")
-		leadingConstant = 1;
+	output = constant + "x" + convertToScript(exponent, intToExponent);
+	if(constant == "")
+		constant = 1;
 
 	return output;
 }
 
 function solvePowerRule(input) {
 	var output = "";
+	var constant = parseInt(input.substring(0, input.indexOf("x")));
+	var exponent = parseInt(convertToScript(input.substring(input.indexOf("x") + 1), exponentToInt));
 
-	if(exponent == 1)
-		return leadingConstant;
+	if(input.indexOf("x") == -1)
+		return 0;
 
-	leadingConstant *= exponent;
-	if(leadingConstant == 0)
-		leadingConstant = "";
+	// pains me to write an else if statement. I could probably have gotten around it but i'm too lazy rn
+	if(isNaN(constant)) {
+		if(isNaN(exponent))
+			return 1;
+			
+		constant = exponent;
+	}
+	else if(isNaN(exponent) || exponent - 1 == 0)
+		return constant;
+	else 
+		constant *= exponent;
 
 	exponent -= 1;
-	if(exponent == 0)
-		return "1";
 
-	output = leadingConstant + "x" + convertToScript(exponent, intToExponent);
+	output = constant + "x" + convertToScript(exponent, intToExponent);
 
 	return output; 
 }
@@ -61,11 +73,6 @@ function generateProblem() {
 
 var problem;
 var solution;
-
-//#region Power Rule Variables
-var leadingConstant = 1;
-var exponent = 1;
-//#endregion
 
 setTimeout(function () {
     nextCard();

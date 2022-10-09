@@ -10,9 +10,8 @@ function generateProblem() {
 
 	var numOfTerms = Math.floor(Math.random() * allowedNumOfTerms) + 2;
 	var constant = (Math.floor(Math.random() * allowedTermSize) - 5).toString();
-	console.log("numofTerms: " + numOfTerms);
 
-	terms = [];
+	var terms = [];
 	var powerChance = 1;
 	for(var i = 0; i < numOfTerms; i++) {
 		var term = Math.floor(Math.random() * allowedTermSize) + 2;
@@ -52,8 +51,6 @@ function generateProblem() {
 		temp.splice(highestIndex, 1);
 	}
 
-	console.log("post first sort: " + terms);
-
 	// sort list based on powers
 	temp = terms;
 	terms = [];
@@ -72,18 +69,12 @@ function generateProblem() {
 		}
 		terms.push(temp[highestIndex]);
 		temp.splice(highestIndex, 1);
-	}
-
-	console.log("post second sort: " + terms);
-			
+	}		
 
 	if(Math.random() < 0.5 || constant == 0)
 		constant = "";
 	else 
 		terms.push(constant);
-
-	console.log("constant: " + constant)
-	console.log("terms: " + terms);
 	
 	for(var i = 0; i < terms.length; i++) {
 		output += terms[i];
@@ -95,28 +86,73 @@ function generateProblem() {
 			if(terms[i + 1].indexOf("x") != -1)
 				xIndex = terms[i + 1].indexOf("x");
 			
-			if(parseInt(terms[i + 1].substring(0, xIndex)) < 0)
+			if(parseInt(terms[i + 1].substring(0, xIndex)) < 0) {
 				output += " - ";
-			else
-				output += " + ";
-
-			// remove negative from next term
-			if(parseInt(terms[i + 1].substring(0, xIndex)) < 0)
 				terms[i + 1] = terms[i + 1].substring(1);
+			} else
+				output += " + ";
 		}
 	}
-
-	console.log(output);
-
 	return output;
 }
 
 function getSolution(input) {
-	var output = "";
+	// create a list of terms, split at + or -
+	var terms = input.split(/(?=[+-])/);
+	
+	// remove spaces and + signs from terms
+	for(var i = 0; i < terms.length; i++) {
+		terms[i] = terms[i].replace(/\s/g, '');
+		terms[i] = terms[i].replace("+", '');
+	}
 
+	var derivatives = [];
 
+	// find derivative of each term
+	for(var i = 0; i < terms.length; i++) {
+		var term = terms[i];
+		derivatives.push(solvePowerRule(term));
+	}
 
-	return output; 
+	var x = context;
+	var y = getSum(terms, x);
+	var m = getSum(derivatives, x);
+	var b = y - (m * x);
+
+	return "y = " + m + "x + " + b;
+}
+
+function getSum(input, x) {
+	var output = 0;
+	var vars = [];
+	for(var i = 0; i < input.length; i++) {
+		var val = input[i].toString();
+		var xIndex = val.length;
+		var c = 0;
+		var expo = 1;
+		
+		if(val.indexOf("x") != -1)
+		{
+			xIndex = val.indexOf("x");
+			c = parseInt(val.substring(0, xIndex));
+			if(val.length > xIndex + 1)
+				expo = parseInt(convertToScript(val.substring(xIndex + 1), exponentToInt));
+		} else {
+			c = parseInt(val);
+			vars.push(c);
+			continue;
+		}
+		
+		var term = c * (Math.pow(x, expo));
+		vars.push(term);
+	}
+	
+	//console.log("Near Output: " + vars);
+
+	for(var i = 0; i < vars.length; i++)
+		output += vars[i];
+
+	return output;
 }
 
 function generate() {
@@ -129,20 +165,11 @@ function generate() {
 
 	console.log("Problem: " + problem);
 	console.log("Solution: " + solution);
-	console.log("Context: " + context);
 }
 
 var problem;
 var solution;
 var context;
-
-//#region Power Rule Variables
-var terms = [];
-//#endregion
-
-setTimeout(function () {
-    nextCard();
-}, 100);
 
 function nextCard() {
 	generate();
