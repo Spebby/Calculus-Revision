@@ -53,6 +53,13 @@ function shuffleSides() {
 
 loadFlashcards();
 
+// add a settings option that allows to user to choose various things
+// if the cards should be shuffled or not
+// broad categories of cards to be shown
+// more specific categories of cards to be shown
+// if the cards should be shown in a random order or not
+// if the above should the flashcards loop? (allowing this when random will be hard to implement)
+
 // wait for the flash cards to be generated 
 var flashcard = new Flashcard("", "", "");
 setTimeout(function () {
