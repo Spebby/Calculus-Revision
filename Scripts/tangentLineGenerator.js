@@ -1,21 +1,26 @@
+const allowedXVal = 4; // highest allowed "x =" value
+const allowedNumOfTerms = 2; // most amount of terms allowed (+ 2)
+const allowedTermSize = 5; // biggest term allowed to be generated
+const allowedPowerSize = 4; // highest power allowed to be generated
+
 function generateProblem() {
 	var output = "";
 
-	context = Math.floor(Math.random() * 5) + 1;
+	context = Math.floor(Math.random() * allowedXVal) + 1;
 
-	var numOfTerms = Math.floor(Math.random() * 3) + 2;
-	var constant = (Math.floor(Math.random() * 15) - 5).toString();
+	var numOfTerms = Math.floor(Math.random() * allowedNumOfTerms) + 2;
+	var constant = (Math.floor(Math.random() * allowedTermSize) - 5).toString();
 	console.log("numofTerms: " + numOfTerms);
 
 	terms = [];
 	var powerChance = 1;
 	for(var i = 0; i < numOfTerms; i++) {
-		var term = Math.floor(Math.random() * 15) + 2;
+		var term = Math.floor(Math.random() * allowedTermSize) + 2;
 		var termPower = "";
 		
 		// commonly give a power
 		if(Math.random() < powerChance)
-			termPower = Math.floor(Math.random() * 8) + 1;
+			termPower = Math.floor(Math.random() * allowedPowerSize) + 1;
 		
 		powerChance -= powerChance/numOfTerms;
 		

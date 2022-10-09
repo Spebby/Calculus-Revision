@@ -4,10 +4,13 @@ function generatePowerRule() {
 
 	// reset leading constant so numbers don't balloon
 	leadingConstant = "";
-	if (Math.random() < 0.5)
-		leadingConstant = Math.floor(Math.random() * 9) + 1;
+	if (Math.random() < 0.9)
+		leadingConstant = Math.floor(Math.random() * 9) + 2;
 
 	output = leadingConstant + "x" + convertToScript(exponent, intToExponent);
+	if(leadingConstant == "")
+		leadingConstant = 1;
+
 	return output;
 }
 
