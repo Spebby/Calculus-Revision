@@ -1,7 +1,9 @@
-function Flashcard(context, front, back) {
-    this.context = context;
-    this.front = front;
-    this.back = back;
+class Flashcard {
+    constructor(context, front, back) {
+        this.context = context;
+        this.front = front;
+        this.back = back;
+    }
 }
 
 // create an array of flashcards
@@ -19,10 +21,9 @@ function loadFlashcards() {
             for (var i = 0; i < jsonData.flashcards.length; i++) {
                 var card = jsonData.flashcards[i];
                 var flashcard = new Flashcard(card.context, card.front, card.back);
-                console.log("Flashcard created: " + card.context, card.front, card.back);
+                //console.log("Flashcard created: " + card.context, card.front, card.back);
                 cardArray.push(flashcard);
             }
-            console.log("Flashcards loaded: " + cardArray.length);
         } else {
             // We reached our target server, but it returned an error
             console.log("Error loading flashcards");
@@ -42,7 +43,6 @@ function getRandomFlashcard() {
 
 // shuffles the fronts and backs of cards
 function shuffleSides() {
-    console.log("shuffling sides");
     for (var i = 0; i < cardArray.length; i++)
         if (Math.random() < 0.5)
             [cardArray[i].front, cardArray[i].back] = [cardArray[i].back, cardArray[i].front];

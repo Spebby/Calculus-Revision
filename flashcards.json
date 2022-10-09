@@ -188,18 +188,18 @@
 		},
 		{
 			"context": "Definitions",
-			"front": "f'(x) or y'(x)",
-			"back": "dy/dx or df/dx"
+			"front": "f'(x), y'(x) or other Valid Forms",
+			"back": "dy/dx, df/dx or other Valid Forms"
 		},
 		{
 			"context": "Definitions",
-			"front": "dy/dx or df/dx",
+			"front": "df/dx",
 			"back": "d/dx f(x)"
 		},
 		{
 			"context": "Definitions",
-			"front": "Df(x) or Dₓf(x)",
-			"back": "df/dx or dy/dx"
+			"front": "Df(x) or Dₓf(x) or other Valid Forms",
+			"back": "df/dx or dy/dx or other Valid Forms"
 		},
 		{
 			"context": "Trig Identities",

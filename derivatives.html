@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculus Revision</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script src="derivativeGenerator.js"></script>
+
+	<div class="fade-in ">
+		<div id="icon" style="padding-top: 1.5%; padding-left: 1.5%;"> 
+			<a href="index.html"> 
+				<img src="icon.png" alt="∫" width="100" height="100"> 
+			</a> 
+		</div>
+
+		<div class="main">
+			<div>
+				<br></br>
+				<button id="flashcard" style="scale: 1.25;" onclick="showAnswer()">
+					<div id="front">
+						<p id="problem" style="font-size: 52px;"></p>
+					</div>
+					<div id="back" style="display:none;">
+						<p id="solution" style="font-size: 52px;"></p>
+					</div>
+				</button>
+				<br></br>
+				<button onclick="nextCard()">Next</button>
+			</div>
+		</div>
+
+		<div style="position: absolute; top: 95%; padding-left: 1%;">
+			<a href="https://github.com/Spebby/Calculus-Revision/issues"> 
+				<p id="link" style="float:left;"> Bugs or Feature Requests? GitHub. </p>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
