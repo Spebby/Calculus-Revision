@@ -295,6 +295,41 @@
 			"context": "Trig Identities",
 			"front": "1 + cot²θ",
 			"back": "csc²θ"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(θ→0) sinθ/θ",
+			"back": "1"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) (f(x) + g(x))",
+			"back": "lim(x→a)f(x) + lim(x→a)(x)"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) (f(x) - g(x))",
+			"back": "lim(x→a)f(x) - lim(x→a)(x)"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) cf(x)",
+			"back": "lim(x→a)c * lim(x→a)f(x)"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) f(x) ⋅ g(x)",
+			"back": "lim(x→a)f(x) ⋅ lim(x→a)(x)"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) f(x)/g(x)",
+			"back": "lim(x→a)f(x) / lim(x→a)(x)"
+		},
+		{
+			"context": "Limit Laws",
+			"front": "lim(x→a) √(f(x)",
+			"back": "√(lim(x→a)f(x))L"
 		}
 	]
 }
