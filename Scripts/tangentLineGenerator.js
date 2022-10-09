@@ -74,25 +74,11 @@ setTimeout(function () {
     nextCard();
 }, 100);
 
-
-flipped = false;
-function showAnswer() {
-    if (flipped) {
-        //document.getElementById("front").style.display = "block";
-        //document.getElementById("back").style.display = "none";
-        flipped = false;
-    } else {
-        //document.getElementById("front").style.display = "none";
-        //document.getElementById("back").style.display = "block";
-        flipped = true;
-    }
-}
-
 function nextCard() {
 	generate();
 
 	if(flipped)
-		showAnswer();
+		flipCard();
 
     //document.getElementById("problem").innerHTML = problem;
     //document.getElementById("solution").innerHTML = solution;
