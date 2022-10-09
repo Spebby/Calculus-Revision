@@ -55,7 +55,7 @@ function generateChainRule() {
 	for(var i = 0; i < terms.length; i++) {
 		output += terms[i];
 		if(i == terms.length - 1)
-			for(var j = 0; j < terms.length; j++)
+			for(var j = 0; j < terms.length - 1; j++)
 				output += ")";
 		else
 			output += "(";
