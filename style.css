@@ -60,7 +60,7 @@ button:hover {
 	border: 6.25px solid #fff;
 	border-radius: 12.5px;
 	min-height: 375px;
-	width: 625px;
+	min-width: 625px;
 }
 
 #icon img {

@@ -1,47 +1,107 @@
 function generateProblem() {
 	var output = "";
 
-	numOfConstants = Math.floor(Math.random() * 3);
+	context = Math.floor(Math.random() * 5) + 1;
 
-	var firstTerm = Math.floor(Math.random() * 15) + 2;
-	var firstTermPower = Math.floor(Math.random() * 8) + 1;
+	var numOfTerms = Math.floor(Math.random() * 3) + 2;
+	var constant = (Math.floor(Math.random() * 15) - 5).toString();
+	console.log("numofTerms: " + numOfTerms);
 
-	var secondTerm = "";
-	var secondTermPower = "";
-	if(Math.random() < 0.75)
-	{
-		secondTerm = Math.floor(Math.random() * 15) + 2;
+	terms = [];
+	var powerChance = 1;
+	for(var i = 0; i < numOfTerms; i++) {
+		var term = Math.floor(Math.random() * 15) + 2;
+		var termPower = "";
 		
-		// rarely have a second term with a power
+		// commonly give a power
+		if(Math.random() < powerChance)
+			termPower = Math.floor(Math.random() * 8) + 1;
+		
+		powerChance -= powerChance/numOfTerms;
+		
+		// randomly make negative
 		if(Math.random() < 0.25)
-			secondTermPower = Math.floor(Math.random() * 3) + 1;
+			term *= -1;
+		
+		terms.push(term + "x" + convertToScript(termPower.toString(), intToExponent));
 	}
 	
-	if(numOfConstants > 0)
-		for(var i = 0; i < numOfConstants; i++)
-			constants.push(Math.floor(Math.random() * 15) + 1);
-	
-	// randomly make the terms negative
-	if(Math.random() < 0.25)
-		firstTerm *= -1;
-	if(Math.random() < 0.25 && secondTerm != "")
-		secondTerm *= -1;
-	for(var i = 0; i < constants.length; i++)
-		if(Math.random() < 0.25)
-			constants[i] *= -1;
-	
-	// assemble the problem
-	var firstTermString = firstTerm + "x" + convertToScript(firstTermPower.toString(), intToExponent);
-	
-	var secondTermString = "";
-	if(secondTerm != "")
-		secondTermString = secondTerm + "x" + convertToScript(secondTermPower.toString(), intToExponent); 
+	// sort list based powers
+	var temp = terms;
+	terms = [];
 
+	// sort list based on leading coefficient
+	while(temp.length > 0) {
+		var highest = 0;
+		var highestIndex = 0;
+
+		// find highest
+		for(var j = 0; j < temp.length; j++) {
+			var term = parseInt(temp[j].substring(0, temp[j].indexOf("x")));
+			if(highest < term) {
+				highest = term;
+				highestIndex = j;
+			}
+		}
+		terms.push(temp[highestIndex]);
+		temp.splice(highestIndex, 1);
+	}
+
+	console.log("post first sort: " + terms);
+
+	// sort list based on powers
+	temp = terms;
+	terms = [];
+
+	while(temp.length > 0) {
+		var highest = 0;
+		var highestIndex = 0;
+
+		// find highest
+		for(var j = 0; j < temp.length; j++) {
+			var power = parseInt(convertToScript(temp[j].substring(temp[j].indexOf("x") + 1), exponentToInt));
+			if(highest < power) {
+				highest = power;
+				highestIndex = j;
+			}
+		}
+		terms.push(temp[highestIndex]);
+		temp.splice(highestIndex, 1);
+	}
+
+	console.log("post second sort: " + terms);
 			
 
+	if(Math.random() < 0.5 || constant == 0)
+		constant = "";
+	else 
+		terms.push(constant);
 
-	console.log("firstTermString: " + firstTermString);
-	console.log("secondTermString: " + secondTermString);
+	console.log("constant: " + constant)
+	console.log("terms: " + terms);
+	
+	for(var i = 0; i < terms.length; i++) {
+		output += terms[i];
+
+		// check if term is negative
+		if( i != terms.length - 1) {
+			// to account for if there's no X.
+			var xIndex = terms[i + 1].length;
+			if(terms[i + 1].indexOf("x") != -1)
+				xIndex = terms[i + 1].indexOf("x");
+			
+			if(parseInt(terms[i + 1].substring(0, xIndex)) < 0)
+				output += " - ";
+			else
+				output += " + ";
+
+			// remove negative from next term
+			if(parseInt(terms[i + 1].substring(0, xIndex)) < 0)
+				terms[i + 1] = terms[i + 1].substring(1);
+		}
+	}
+
+	console.log(output);
 
 	return output;
 }
@@ -58,16 +118,21 @@ function generate() {
 	problem = generateProblem();
 	solution = getSolution(problem);
 
+	// remember that the problem must ask something along the lines of "what is the tangent line at x = 5?"
+	// "for f(x) = problem"
+	// "in y=mx+b form"
+
 	console.log("Problem: " + problem);
 	console.log("Solution: " + solution);
+	console.log("Context: " + context);
 }
 
 var problem;
 var solution;
+var context;
 
 //#region Power Rule Variables
-var numOfConstants = 0;
-var constants = [];
+var terms = [];
 //#endregion
 
 setTimeout(function () {
@@ -80,6 +145,7 @@ function nextCard() {
 	if(flipped)
 		flipCard();
 
-    //document.getElementById("problem").innerHTML = problem;
-    //document.getElementById("solution").innerHTML = solution;
+	document.getElementById("context").innerHTML = "What is the tangent line at x = " + context;
+    document.getElementById("problem").innerHTML = problem;
+    document.getElementById("solution").innerHTML = solution;
 }
