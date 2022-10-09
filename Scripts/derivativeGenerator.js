@@ -3,7 +3,7 @@ function generatePowerRule() {
 	var output = "";
 
 	// reset leading constant so numbers don't balloon
-	leadingConstant = 1;
+	leadingConstant = "";
 	if (Math.random() < 0.5)
 		leadingConstant = Math.floor(Math.random() * 9) + 1;
 
