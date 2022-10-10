@@ -120,8 +120,16 @@ function getSolution(input) {
 	var y = combineTerms(terms, x);
 	var m = combineTerms(derivatives, x);
 	var b = y - (m * x);
+	var sign = "";
+	b < 0 ? sign = "-" : sign = "+";
+	b = Math.abs(b);
+	if(b == 0)
+	{
+		b = "";
+		sign = "";
+	}
 
-	return "y = " + m + "x + " + b;
+	return "y = " + m + "x " + sign + " " + b;
 }
 
 function combineTerms(input, x) {

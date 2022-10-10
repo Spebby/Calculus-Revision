@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -8,6 +9,11 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<script src="Scripts/flashcard.js"></script>
+	<script src="Scripts/convertToScript.js"></script>
+	<script src="Scripts/derivativeGenerator.js"></script>
+	<script src="Scripts/tangentLineGenerator.js"></script>
+
 	<div class="fade-in ">
 		<div id="icon" style="padding-top: 1.5%; padding-left: 1.5%;"> 
 			<a href="index.html"> 
@@ -17,19 +23,19 @@
 
 		<div class="main">
 			<div>
-				<div class="title">
-					<div style="float:center"> <h1>Calculus Revision</h1> </div>
-					<hr></hr>
-				</div>
-
-				<span class="container">
-					<a href="memorisation.html"><button class="button">Memorisation</button></a>
-					<a href="unimplemented.html"><button class="button">Limits</button></a>
-					<a href="derivatives.html"><button class="button">Derivatives</button></a>
-					<!-- <a href="unimplemented.html"><button class="button">Integrals</button></a> -->
-					<a href="tangents.html"><button class="button">Tangents</button></a>
-					<a href="unimplemented.html"><button class="button">Flying Ball</button></a>
-				</span>
+				<br></br>
+				<button id="flashcard" onclick="flipCard()">
+					<div id="front">
+						<p id="context" style="font-weight: bold;"></p>
+						<p id="problem"></p>
+						<p>in y=mx+b form.</p>
+					</div>
+					<div id="back" style="display:none;">
+						<p id="solution" style="font-size: 72px;"></p>
+					</div>
+				</button>
+				<br></br>
+				<button onclick="nextCard()">Next</button>
 			</div>
 		</div>
 

@@ -10,6 +10,11 @@ html, body .main{
 	color: #fff;
 }
 
+#header {
+	display: flex;
+  justify-content: space-between;
+}
+
 .main {
 	display: -webkit-flexbox;
     display: -ms-flexbox;
