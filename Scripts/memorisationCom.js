@@ -13,7 +13,7 @@ jsonRetrived = false;
 
 function loadFlashcards() {
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://raw.githubusercontent.com/Spebby/Calculus-Revision/main/flashcards.json', true);
+    request.open('GET', 'https://raw.githubusercontent.com/Spebby/Calculus-Revision/main/json/flashcards.json', true);
     request.onload = function () {
         if (request.status >= 200 && request.status < 500) {
             // Success!
