@@ -10,3 +10,15 @@ function flipCard() {
         flipped = true;
     }
 }
+
+function toggleSettings() {
+    var settings = document.getElementById("settings");
+    var mainPage = document.getElementById("mainPage");
+    if (settings.style.display === "none") {
+        settings.style.display = "block";
+        mainPage.style.display = "none";
+    } else {
+        settings.style.display = "none";
+        mainPage.style.display = "block";
+    }
+}

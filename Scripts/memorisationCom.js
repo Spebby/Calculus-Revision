@@ -5,9 +5,11 @@ class Flashcard {
         this.back = back;
     }
 }
+var backUpFlashcard = new Flashcard("No Avalible Flashcards", "Change your settings!", "Change your settings!");
 
 // create an array of flashcards
 var cardArray = [];
+var remainingCards = [];
 jsonRetrived = false;
 
 function loadFlashcards() {
@@ -37,8 +39,37 @@ function loadFlashcards() {
 }
 
 function getRandomFlashcard() {
-    var randomIndex = Math.floor(Math.random() * cardArray.length);
-    return cardArray[randomIndex];
+    if(!allowRepeatCards && remainingCards.length == 0)
+        remainingCards = cardArray;
+
+    // fill the repeat array. if allowing repeat cards, this will be the entire card array
+    if(allowRepeatCards == false)
+        filteredArray = remainingCards;
+    else
+        filteredArray = cardArray;
+
+    // filter the array based on the settings. this is probably the worst way to do this
+    if (allowDerivatives == false)
+        filteredArray = filteredArray.filter(card => card.context != "Derivatives");
+    if (allowDerivativeRules == false)
+        filteredArray = filteredArray.filter(card => card.context != "Derivative Rules");
+    if (allowDefinitions == false)
+        filteredArray = filteredArray.filter(card => card.context != "Definitions");
+    if (allowTrigIdentities == false)
+        filteredArray = filteredArray.filter(card => card.context != "Trig Identities");
+    if (allowLimitLaws == false)
+        filteredArray = filteredArray.filter(card => card.context != "Limit Laws");
+    
+    if(filteredArray.length == 0)
+        return backUpFlashcard;
+
+    var randomIndex = Math.floor(Math.random() * filteredArray.length);
+    var randomCard = filteredArray[randomIndex];
+
+    if(!allowRepeatCards)
+        remainingCards.splice(remainingCards.indexOf(randomCard), 1);
+
+    return randomCard;
 }
 
 // shuffles the fronts and backs of cards
@@ -73,8 +104,50 @@ setTimeout(function () {
 
 function nextCard() {
     flashcard = getRandomFlashcard();
-    shuffleSides();
+
+    if(allowShuffle)
+        shuffleSides();
+    
     document.getElementById("context").innerHTML = flashcard.context;
     document.getElementById("frontText").innerHTML = flashcard.front;
     document.getElementById("backText").innerHTML = flashcard.back;
+}
+
+var allowDerivatives = true;
+var allowDerivativeRules = true;
+var allowDefinitions = true;
+var allowTrigIdentities = true;
+var allowLimitLaws = true;
+var allowShuffle = true;
+var allowRepeatCards = true;
+
+// i would imagine there's a much better way to do this, but I'm not familiar enough with
+// HTML's ability to call functions with parameters, so I'm just going to do this for now
+function toggleDerivatives() {
+    allowDerivatives = !allowDerivatives;
+    nextCard();
+}
+function toggleDerivativeRules() {
+    allowDerivativeRules = !allowDerivativeRules;
+    nextCard();
+}
+function toggleDefinitions() {
+    allowDefinitions = !allowDefinitions;
+    nextCard();
+}
+function toggleTrigIdentities() {
+    allowTrigIdentities = !allowTrigIdentities;
+    nextCard();
+}
+function toggleLimitLaws() {
+    allowLimitLaws = !allowLimitLaws;
+    nextCard();
+}
+function toggleShuffle() {
+    allowShuffle = !allowShuffle;
+    if(flipped)
+        flipCard();
+}
+function toggleRepeatCards() {
+    allowRepeatCards = !allowRepeatCards;
 }

@@ -92,52 +92,52 @@
 			"back": "0"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Power Rule",
 			"back": "d/dx (xⁿ) = xu⁽ⁿ⁻¹⁾"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Sum Rule",
 			"back": "d/dx (f + g) = d/dx f(x) + d/dx g(x)"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Difference Rule",
 			"back": "d/dx (f - g) = df/dx - dg/dx"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Product Rule",
 			"back": "d/dx (fg) = df/dx ⋅ g(x) + dg/dx ⋅ f(x)"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Quotient Rule",
 			"back": "d/dx (f/g) = (df/dx ⋅ g(x) - dg/dx ⋅ f(x)) / g(x)²"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Chain Rule",
 			"back": "d/dx (f(g)) = df/dx(g) ⋅ dg/dx"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Implicit Differentiation",
 			"back": "d/dx (f(x,y)) = df/dx + (df/dy)(dy/dx)"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Logarithmic Differentiation",
 			"back": "d/dx (ln f(x)) = 1/f(x) ⋅ df/dx"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Exponential Differentiation",
 			"back": "d/dx (eˣ) = eˣ"
 		},
 		{
-			"context": "Derivatives Rules",
+			"context": "Derivative Rules",
 			"front": "Constant Rule",
 			"back": "d/dx (c) = 0"
 		},

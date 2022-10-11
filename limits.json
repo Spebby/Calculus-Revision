@@ -1,0 +1,17 @@
+{
+  "Limits":
+  [
+    {
+      "problem": "lim x->0 tan6x/sin2x",
+      "answer": "3"
+    },
+    {
+      "problem": "lim x->0 sin4x/sin5x",
+      "answer": "4/5"
+    },
+    {
+      "problem": "lim x->0 sinx/x",
+      "answer": "1"
+    }
+  ]
+}

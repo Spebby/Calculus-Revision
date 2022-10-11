@@ -20,12 +20,12 @@
 			<!-- align to the right -->
 
 			<icon id="icon"> 
-				<img src="Graphics/settings.svg" alt="⚙" width="100" height="100">  
-			</</icon>
+				<img src="Graphics/settings.svg" alt="⚙" width="100" height="100" onclick="toggleSettings()">  
+			</icon>
 		</div>
 		
 		<div class="main">
-			<div>
+			<div id="mainPage" style="display: block;">
 				<br></br>
 				<button id="flashcard" onclick="flipCard()">
 					<p id="context" style="align-self: top;">Loading...</p>
@@ -38,6 +38,46 @@
 				</button>
 				<br></br>
 				<button onclick="nextCard()">Next</button>
+			</div>
+		</div>
+
+		<div id="settings" style="display: none;">
+			<div class="Toggles">
+				<label class="switch">
+					<input type="checkbox" checked onclick="toggleDerivatives()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Derivatives </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleDerivativeRules()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Derivative Rules </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleDefinitions()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Definitions </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleTrigIdentities()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Trig Identities </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleLimitLaws()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Limit Laws </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleShuffle()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Random Shuffle </label>
+				</label>
+				<label class="switch" style="width: fit-content">
+					<input type="checkbox" checked onclick="toggleRepeatCards()">
+					<span class="slider"></span>
+					<label style="margin-left: 85px;"> Repeat Cards </label>
+				</label>
 			</div>
 		</div>
 
