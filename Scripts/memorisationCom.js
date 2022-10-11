@@ -9,7 +9,7 @@ var backUpFlashcard = new Flashcard("No Avalible Flashcards", "Change your setti
 
 // create an array of flashcards
 var cardArray = [];
-var remainingCards = [];
+var usedCards = [];
 jsonRetrived = false;
 
 function loadFlashcards() {
@@ -39,14 +39,7 @@ function loadFlashcards() {
 }
 
 function getRandomFlashcard() {
-    if(!allowRepeatCards && remainingCards.length == 0)
-        remainingCards = cardArray;
-
-    // fill the repeat array. if allowing repeat cards, this will be the entire card array
-    if(allowRepeatCards == false)
-        filteredArray = remainingCards;
-    else
-        filteredArray = cardArray;
+    var filteredArray = cardArray;
 
     // filter the array based on the settings. this is probably the worst way to do this
     if (allowDerivatives == false)
@@ -60,14 +53,23 @@ function getRandomFlashcard() {
     if (allowLimitLaws == false)
         filteredArray = filteredArray.filter(card => card.context != "Limit Laws");
     
+    if(allowRepeatCards == false) {
+        var temp = filteredArray;
+        filteredArray = filteredArray.filter(card => usedCards.includes(card));
+        if(filteredArray.length == 0) {
+            usedCards = [];
+            return temp[Math.floor(Math.random() * temp.length)];
+        }
+    }
+
     if(filteredArray.length == 0)
         return backUpFlashcard;
 
     var randomIndex = Math.floor(Math.random() * filteredArray.length);
     var randomCard = filteredArray[randomIndex];
 
-    if(!allowRepeatCards)
-        remainingCards.splice(remainingCards.indexOf(randomCard), 1);
+    if(allowRepeatCards == false)
+        usedCards.push(randomCard);
 
     return randomCard;
 }
