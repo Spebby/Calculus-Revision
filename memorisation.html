@@ -29,14 +29,12 @@
 				<br></br>
 				<button id="flashcard" onclick="flipCard()">
 					<p id="context" style="align-self: top;">Loading...</p>
-					<div id="front">
-						<p id="frontText" style="font-weight: bold;"></p>
-					</div>
-					<div id="back" style="display:none;">
-						<p id="backText" style="font-weight: bold;"></p>
-					</div>
+					<div id="front" style="display:block;"><p id="frontText" style="font-weight: bold;"></p></div>
+					<div id="back" style="display:none;"><p id="backText" style="font-weight: bold;"></p></div>
 				</button>
-				<br></br>
+				<div></div> 
+				<!-- Originally used br but it was too big of a break. 
+					CSS doesn't have an all-in-one solution for smaller breaks.-->
 				<button onclick="nextCard()">Next</button>
 			</div>
 		</div>
