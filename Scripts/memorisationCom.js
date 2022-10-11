@@ -9,7 +9,6 @@ var backUpFlashcard = new Flashcard("No Avalible Flashcards", "Change your setti
 
 // create an array of flashcards
 var cardArray = [];
-var usedCards = [];
 jsonRetrived = false;
 
 function loadFlashcards() {
@@ -52,24 +51,12 @@ function getRandomFlashcard() {
         filteredArray = filteredArray.filter(card => card.context != "Trig Identities");
     if (allowLimitLaws == false)
         filteredArray = filteredArray.filter(card => card.context != "Limit Laws");
-    
-    if(allowRepeatCards == false) {
-        var temp = filteredArray;
-        filteredArray = filteredArray.filter(card => usedCards.includes(card));
-        if(filteredArray.length == 0) {
-            usedCards = [];
-            return temp[Math.floor(Math.random() * temp.length)];
-        }
-    }
 
     if(filteredArray.length == 0)
         return backUpFlashcard;
 
     var randomIndex = Math.floor(Math.random() * filteredArray.length);
     var randomCard = filteredArray[randomIndex];
-
-    if(allowRepeatCards == false)
-        usedCards.push(randomCard);
 
     return randomCard;
 }
@@ -121,7 +108,6 @@ var allowDefinitions = true;
 var allowTrigIdentities = true;
 var allowLimitLaws = true;
 var allowShuffle = true;
-var allowRepeatCards = true;
 
 // i would imagine there's a much better way to do this, but I'm not familiar enough with
 // HTML's ability to call functions with parameters, so I'm just going to do this for now
@@ -149,7 +135,4 @@ function toggleShuffle() {
     allowShuffle = !allowShuffle;
     if(flipped)
         flipCard();
-}
-function toggleRepeatCards() {
-    allowRepeatCards = !allowRepeatCards;
 }
